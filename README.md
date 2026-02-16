@@ -35,7 +35,7 @@ Esses conceitos permitem estruturar e organizar o código de maneira eficiente, 
 
 ## 🔗 Materiais da Disciplina
 
-Para mais informações, materiais de estudo e atividades, acesse o Ambiente Virtual de Aprendizagem (AVA) da disciplina [aqui](https://presencial.ifrs.edu.br/user/index.php?id=1811).
+Para mais informações, materiais de estudo e atividades, acesse o Ambiente Virtual de Aprendizagem (AVA) da disciplina [aqui](https://presencial.ifrs.edu.br/user/index.php?id=1833).
 
 ---
 
