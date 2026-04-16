@@ -11,6 +11,29 @@ class Aluno {
 	String cpf;
 	String curso;
 
+	// criando um método construtor
+	
+	// O que é:
+	// O método construtor é um método especial da classe.
+	// Ele possui o MESMO nome da classe (Aluno).
+	
+	// O que faz:
+	// Ele é responsável por inicializar os atributos do objeto no momento da criação.
+	// Ou seja, ele já define valores para nome, dataNascimento, cpf e curso automaticamente.
+	
+	// Qual o nome:
+	// O nome do método construtor é "Aluno", exatamente igual ao nome da classe.
+	
+	// o método construtor é um método especial, pois ele é executado automaticamente
+	// ao criar o objeto (new Objeto)
+	public Aluno(String nome, String dataNascimento, String cpf, String curso){
+		this.nome = nome;
+		this.dataNascimento = dataNascimento;
+		this.cpf = cpf;
+		this.curso = curso;
+	}
+	
+
 	// MÉTODO (ação/comportamento do aluno)
 	// Esse método serve para mostrar os dados do aluno na tela
 	public void mostrarAluno() {
@@ -32,23 +55,21 @@ class Aluno {
 
 		// Criando um objeto (aluno)
 		// "new Aluno()" cria um novo aluno na memória
-		Aluno al01 = new Aluno();
 		
-		// Preenchendo os dados do aluno 1
-		// Estamos atribuindo valores aos atributos
-		al01.nome = "Manuela";
-		al01.dataNascimento = "10/06/2009";
-		al01.cpf = "123.456.678-65";
-		al01.curso = "Técnico em informática";
+		// O que muda ao usar o método construtor:
+		// Ao criar o objeto passando valores no construtor,
+		// o objeto já nasce com os atributos preenchidos.
+		// Não é necessário atribuir os valores depois (ex: al01.nome = "Manuela";).
+		// Isso torna o código mais organizado, seguro e evita esquecer de inicializar atributos.
+		// Em outros palavras, obriga que aquelas informações sejam inicializas
+		
+		Aluno al01 = new Aluno("Manuela", "10/06/2009", "123.456.678-65", "Técnico em informática");
+		
 		
 		// Criando outro objeto (outro aluno)
-		Aluno al02 = new Aluno();
-		
-		// Preenchendo os dados do aluno 2
-		al02.nome = "Germano";
-		al02.dataNascimento = "06/06/2009";
-		al02.cpf = "903.435.765-42";
-		al02.curso = "Técnico em informática";
+		// Aqui acontece a mesma coisa: o construtor é chamado automaticamente
+		// e já inicializa todos os dados do objeto no momento da criação.
+		Aluno al02 = new Aluno("Germano", "06/06/2009", "903.435.765-42", "Técnico em informática");
 		
 		// Chamando o método mostrarAluno()
 		// Isso faz com que os dados do aluno apareçam na tela
