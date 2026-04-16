@@ -6,6 +6,14 @@ class Data {
 	int mes;
 	int ano;
 	
+	// criando um método construtor para inicializar a data
+	// vamos definir que todos os atributos são obrigatórios
+	public Data (int dia, int mes, int ano ) {
+		this.dia = dia;
+		this.mes = mes;
+		this.ano = ano;
+	}
+	
 	// método responsável por exibir a data no formato abreviado (dd/mm/aaaa)
 	public void escreverAbreviado() {
 		System.out.printf("%d/%d/%d \n", dia, mes, ano);
@@ -15,12 +23,7 @@ class Data {
 	public static void main (String args[]) {
 
 		// criando um objeto para representar a data atual
-		Data hoje = new Data();
-		
-		// atribuindo valores aos atributos do objeto hoje
-		hoje.dia = 9;
-		hoje.mes = 4;
-		hoje.ano = 2006;
+		Data hoje = new Data(16, 4, 2026);
 		
 		// exibindo a data atual no formato abreviado
 		hoje.escreverAbreviado();
@@ -28,24 +31,15 @@ class Data {
 		// criando outros objetos do tipo Data
 		
 		// objeto para representar a data de entrega do trabalho
-		Data dataEntrega = new Data();
-		
-		// definindo os valores da data de entrega
-		dataEntrega.dia = 3;
-		dataEntrega.mes = 5;
-		dataEntrega.ano = 2026;
+		Data dataEntrega = new Data(3, 5, 2026);
+
 		
 		// exibindo mensagem + data de entrega
 		System.out.printf("A data de entrega do trabalho de Programação é ");
 		dataEntrega.escreverAbreviado(); 
 		
 		// objeto para representar a data da avaliação
-		Data dataAvaliacao = new Data();
-		
-		// definindo os valores da data da avaliação
-		dataAvaliacao.dia = 30;
-		dataAvaliacao.mes = 4;
-		dataAvaliacao.ano = 2026;
+		Data dataAvaliacao = new Data(30, 4, 2026);
 		
 		// exibindo mensagem + data da avaliação
 		System.out.printf("A data da avaliação de Programação é ");
