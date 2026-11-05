@@ -1,139 +1,37 @@
-import java.util.Scanner;
+class Calculadora {
 
-/*
-Classe que representa uma calculadora simples.
+    // Atributos de INSTÂNCIA (cada objeto criado com 'new' possui suas próprias cópias de n1 e n2)
+    int n1;
+    int n2;
 
-O objetivo deste exemplo é demonstrar:
-- Criação de atributos e métodos;
-- Diferença entre métodos com e sem retorno;
-- Reaproveitamento de código através de chamadas de métodos;
-- Organização do programa utilizando orientação a objetos.
-
-Nesta etapa, os atributos ainda não estão encapsulados.
-*/
-class Calculadora{
-
-	// Atributos da classe
-	float n1;
-	float n2;
-	String operacao;
-	
-	/*
-	Método sem retorno (void).
-
-	Responsável apenas por exibir as opções disponíveis
-	para o usuário.
-	*/
-	public void mostrarMenu() {
-		System.out.printf("Calculadora básica. Opções \n");
-		System.out.printf("+ para somar \n");
-		System.out.printf("- para subtrair \n");
-		System.out.printf("* para multiplicar \n");
-		System.out.printf("/ para dividir \n");
-		System.out.printf("s para sair \n");
-	}
-	
-	/*
-	Método sem retorno (void).
-
-	Lê os dados informados pelo usuário e armazena
-	os valores diretamente nos atributos do objeto.
-	*/
-	public void lerTeclado(){
-		
-		Scanner sc = new Scanner(System.in);
-		
-		System.out.printf("Informe a operação: ");
-		operacao = sc.nextLine();
-		
-		System.out.printf("Digite o numero 1: ");
-		n1 = sc.nextFloat();
-		
-		System.out.printf("Digite o numero 2: ");
-		n2 = sc.nextFloat();
-		
-	}
-	
-	/*
-	Método com retorno.
-
-	Recebe os dados que já estão armazenados nos atributos,
-	executa o cálculo correspondente e devolve o resultado
-	para quem chamou o método.
-
-	A palavra-chave 'return' é utilizada para devolver
-	um valor do tipo float.
-	*/
-	public float calcularResultado() {
-		
-		float resultado = 0;
-		
-		if (operacao.equals("+") ){
-			resultado = n1 + n2;
-		} else if (operacao.equals("-") ) {
-			resultado = n1 - n2;
-		} else if (operacao.equals("*") ) {
-			resultado = n1 * n2;
-		} else if (operacao.equals("/") ) {
-			resultado = n1 / n2;
-		}
-		
-		return resultado;
-	}
-	
-	public static void main (String args[]){
-		
-		/*
-		Criação de um objeto da classe Calculadora.
-		A variável 'calc' passa a referenciar esse objeto.
-		*/
-		Calculadora calc = new Calculadora();
-		
-		/*
-		Chamada de um método sem retorno.
-
-		O método executa uma ação (mostrar o menu),
-		mas não devolve nenhum valor.
-		*/
-		calc.mostrarMenu();
-		
-		/*
-		Outro método sem retorno.
-
-		Ele apenas realiza a leitura dos dados
-		e armazena as informações nos atributos.
-		*/
-		calc.lerTeclado();
-		
-		/*
-		Exemplo de chamada de um método com retorno.
-
-		O valor devolvido por calcularResultado()
-		é utilizado diretamente pelo printf.
-		*/
-		System.out.printf(
-			"O resultado é %f \n",
-			calc.calcularResultado()
-		);
-		
-		/*
-		As linhas abaixo repetem exatamente o mesmo
-		processo realizado anteriormente.
-
-		Isso demonstra que um método pode ser chamado
-		quantas vezes forem necessárias, permitindo
-		reaproveitamento de código e evitando duplicação
-		da lógica de programação.
-		*/
-		
-		calc.mostrarMenu();
-		
-		calc.lerTeclado();
-		
-		System.out.printf(
-			"O resultado é %f \n",
-			calc.calcularResultado()
-		);
-	}
-
+    // Método ESTÁTICO: Pertence à classe, não ao objeto.
+    // Recebe todos os dados de que precisa via parâmetros (a, b) e processa sem depender de instâncias.
+    public static int somar (int a, int b) {
+        return a + b;
+    }
+    
+    /* 
+     * ESTE MÉTODO ABAIXO NÃO FUNCIONA (ERRO DE COMPILAÇÃO):
+     * 
+     * public static int somar () {
+     *     return n1 + n2;
+     * }
+     * 
+     * MOTIVO: Métodos estáticos pertencem à CLASSE e são carregados antes de qualquer objeto existir.
+     * Atributos como 'n1' e 'n2' são de INSTÂNCIA (só existem dentro de um objeto criado com 'new').
+     * Um método estático não possui a referência 'this' e não sabe a qual objeto os atributos 'n1' e 'n2'
+     * pertenceriam, tornando impossível o acesso direto a atributos não estáticos.
+     */
+    
+    public static void main (String args[]){
+        
+        
+        // Um método estático é chamado pelo nome da classe seguido pelo nome do método
+        // caso houvesse uma instancia, por exemplo Calculadora c1 = new Calculadora();
+        // iria funcionar fazer: c1.somar(25, 8);
+        float resultado = Calculadora.somar(25, 8); 
+        
+        System.out.printf("A soma é: %f ", resultado);
+        
+    }
 }
